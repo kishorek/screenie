@@ -59,6 +59,7 @@ function handleStop() {
   const videoURL = URL.createObjectURL(blob);
   videoElement.src = videoURL;
   videoElement.controls = true;
+  videoElement.style.display = "block"; // Show the video element
   videoElement.play();
 
   createDownloadLink(videoURL);
@@ -75,3 +76,11 @@ function createDownloadLink(videoURL) {
   downloadLinkContainer.innerHTML = "";
   downloadLinkContainer.appendChild(downloadLink);
 }
+
+// Add this function at the end of the file
+function initializePage() {
+  videoElement.style.display = "none"; // Hide the video element initially
+}
+
+// Call the initialization function when the page loads
+window.addEventListener("load", initializePage);
